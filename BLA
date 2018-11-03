@@ -1,0 +1,71 @@
+/* You are given two positive integers a and b. You may apply the following magical operation any number of times (including zero):
+choose an arbitrary positive integer d
+perform exactly one of the following actions:
+add d to a, add d−1 to b
+add d−1 to a, add d to b
+Chef is asking you to find out if it is possible to obtain a=b. Help him!
+*/
+#include <stdio.h>
+
+void main()
+{   
+	int a,b,c,h,d,l;
+	int T;
+	scanf("%d",&T);
+	for(int i=1;i<=T;i++)
+	{
+		scanf("%d%d",&a,&b);
+		if(a>b)
+		{
+			c=a-b;
+			h=a;
+			a=b;
+			b=h;
+		}
+	    else
+	    {
+	    	c=b-a;
+	    }
+	    d=a*2;
+	    l=d-1;
+	    b=b+d;
+	    a=a+l;
+	    a=a+d;
+	    b=b+l;
+	    d--;
+	    l--;
+	    for (int j = 1; j <= c ; ++j)
+	    {
+	        a=a+d;
+	        b=b+l;
+	        d--;
+	        l--;
+	    }
+	    if(a==b)
+	    {
+	    	printf("YES");
+	    }
+	    else
+	    {
+	    	printf("NO");
+	    }
+	}
+
+}
+
+// The time limit was extended so this shit was wrong :/
+//CHEF's solution
+
+
+#include <stdio.h>
+int main()
+{
+	int T,a,b;
+	scanf("%d",&T);
+	for (int i = 1; i <= T; ++i)
+	{
+		scanf("%d%d",&a,&b);
+		printf("YES\n");
+	}
+	return 0;
+}
